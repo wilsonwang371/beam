@@ -59,8 +59,10 @@ class ThreadsafeRestrictionTracker(object):
     # type: (RestrictionTracker) -> None
     from apache_beam.io.iobase import RestrictionTracker
     if not isinstance(restriction_tracker, RestrictionTracker):
+      print('Type of restriction_tracker: ', type(restriction_tracker))
+      print('properties of restriction_tracker: ', dir(restriction_tracker))
       raise ValueError(
-          'Initialize ThreadsafeRestrictionTracker requires'
+          'Initialize ThreadsafeRestrictionTracker requires '
           'RestrictionTracker.')
     self._restriction_tracker = restriction_tracker
     # Records an absolute timestamp when defer_remainder is called.
